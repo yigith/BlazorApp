@@ -1,0 +1,37 @@
+@page "/"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+<button @onmouseover="arttir">@sayac</button>
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<form @onsubmit="ekle">
+    <input type="text" @bind="ad" />
+    <button>EKLE</button>
+</form>
+
+
+<ul>
+@foreach (var item in adlar)
+{
+    <li>@item</li>
+}
+</ul>
+
+@code {
+    int sayac = 0;
+    string ad = "";
+    List<string> adlar = new List<string>();
+
+    private void arttir() {
+        sayac++;
+    }
+
+    void ekle() {
+        adlar.Add(ad);
+        ad = "";
+    }
+
+}
